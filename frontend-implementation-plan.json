@@ -1,0 +1,31 @@
+{
+  "kind": "implementation_plan",
+  "version": "1.0",
+  "title": "Fix quiz submission failure",
+  "requirements": [
+    {
+      "id": "REQ-12",
+      "summary": "Investigate and fix the 'failed to submit quiz' error by auditing the submitQuizAnswers mutation in frontend/src/hooks/useQueries.ts and ensuring the data shape from QuizQuestionsPage.tsx matches backend expectations",
+      "acceptanceCriteria": [
+        "Completing the quiz and pressing submit no longer shows the 'failed to submit quiz' error message.",
+        "Quiz responses are successfully persisted to the backend after submission.",
+        "After successful submission, the user is navigated to the Dashboard page.",
+        "The backend correctly receives and stores the sector, question IDs, and selected answers.",
+        "Any prior quiz submission data for the same user is handled gracefully (overwrite or append as appropriate).",
+        "If submission fails for a legitimate reason (e.g., unauthenticated), a meaningful error message is shown rather than a generic failure."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/hooks/useQueries.ts",
+          "operation": "modify",
+          "description": "Audit and fix the submitQuizAnswers mutation to ensure the correct data shape is sent to the backend. Verify that the mutation passes the sector object (with id and name fields matching the Sector type from backend.d.ts) and the answers array as bigints. Ensure proper error handling and error message extraction from backend traps. Add console logging for debugging the submission payload and backend response."
+        },
+        {
+          "path": "frontend/src/pages/QuizQuestionsPage.tsx",
+          "operation": "modify",
+          "description": "Audit the quiz submission flow to ensure the selected sector object and answers array are correctly formatted before being passed to the submitQuizAnswers mutation. Verify that question IDs are converted to bigints if needed and that the sector object includes all required fields (id as bigint, name, description). Ensure the success navigation to '/dashboard' occurs only after the mutation succeeds. Improve error display to show meaningful backend error messages rather than generic 'failed to submit quiz' text. Add loading state during submission to prevent double-submits."
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,167 @@
+{
+  "schemaVersion": "1.0.0",
+  "projectStateVersion": 7,
+  "summary": "AI-driven career path recommendation system web app with white and purple theme. Frontend: HTML, CSS, JavaScript, React. Backend: Python and Node.js. Features include user authentication, interest-based quiz with sector selection, job search, detailed job descriptions with roadmaps and skill levels, dashboard with skill assessment, and user profile management. The website/app is named \"Kick-Start Career's\".",
+  "architectural_notes": [
+    "Frontend: React with HTML, CSS, JavaScript; white and purple theme",
+    "Backend: Python (AI/ML logic) + Node.js (API/server layer)",
+    "Flow: Login → Career Kick Start → (Quiz path or Search path) → Dashboard → Job Description",
+    "Skill assessment is optional and accessible from the dashboard"
+  ],
+  "known_issues": [
+    "Quiz submission fails with 'failed to submit quiz' error"
+  ],
+  "isFixRequest": true,
+  "existing_features": [
+    {
+      "id": "feature-implement-user-authentication-a-dedicated-login-signup-page-where-users-can-create-a-new-account-name-email-password-or-sign-in-with-existing-credentials-store-user-accounts-and-session-state-in-the-backend-after-successful-login-redirect-to-the-career-kick-start-page",
+      "title": "Implement user authentication: a dedicated Login/Signup page where users can create a new account (name, email, password) or sign in with existing credentials. Store user accounts and session state in the backend. After successful login, redirect to the Career Kick Start page.",
+      "reqIds": [
+        "REQ-1"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-create-the-career-kick-start-landing-page-shown-after-login-presenting-the-user-s-name-and-two-clear-call-to-action-options-begin-your-journey-starts-the-interest-quiz-flow-and-view-roadmap-opens-the-job-search-page",
+      "title": "Create the Career Kick Start landing page (shown after login) presenting the user's name and two clear call-to-action options: 'Begin Your Journey' (starts the interest quiz flow) and 'View Roadmap' (opens the job search page).",
+      "reqIds": [
+        "REQ-2"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-implement-the-interest-based-quiz-flow-first-show-a-sector-selection-screen-where-the-user-picks-a-broad-sector-e-g-technology-healthcare-commerce-arts-business-engineering-etc-then-display-up-to-15-interest-questions-tailored-to-that-sector-each-question-has-multiple-choice-answers-on-submission-persist-the-responses-to-the-backend-and-navigate-to-the-dashboard",
+      "title": "Implement the interest-based quiz flow. First, show a sector selection screen where the user picks a broad sector (e.g., Technology, Healthcare, Commerce, Arts, Business, Engineering, etc.). Then display up to 15 interest questions tailored to that sector. Each question has multiple-choice answers. On submission, persist the responses to the backend and navigate to the Dashboard.",
+      "reqIds": [
+        "REQ-3"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-implement-the-job-search-page-reached-via-view-roadmap-display-a-search-bar-where-the-user-can-type-any-job-role-show-a-list-of-matching-job-results-as-cards-with-a-brief-overview-clicking-a-result-navigates-to-the-full-job-description-page-for-that-role",
+      "title": "Implement the Job Search page (reached via 'View Roadmap'). Display a search bar where the user can type any job role. Show a list of matching job results as cards with a brief overview. Clicking a result navigates to the full Job Description page for that role.",
+      "reqIds": [
+        "REQ-4"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-build-the-job-description-page-for-any-job-role-reached-via-quiz-recommendation-or-search-display-job-title-full-job-description-job-growth-in-the-market-future-scope-average-salary-a-visual-step-by-step-roadmap-key-skills-required-and-a-skill-breakdown-across-beginner-intermediate-advanced-levels",
+      "title": "Build the Job Description page. For any job role (reached via quiz recommendation or search), display: job title, full job description, job growth in the market, future scope, average salary, a visual step-by-step roadmap, key skills required, and a skill breakdown across Beginner / Intermediate / Advanced levels.",
+      "reqIds": [
+        "REQ-5"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-create-the-dashboard-page-shown-after-the-interest-quiz-is-submitted-the-dashboard-should-display-the-user-s-selected-sector-ai-recommended-job-roles-based-on-quiz-answers-a-summary-of-quiz-responses-and-an-optional-skill-assessment-section-the-user-can-choose-to-take-or-skip",
+      "title": "Create the Dashboard page shown after the interest quiz is submitted. The dashboard should display: the user's selected sector, AI-recommended job roles based on quiz answers, a summary of quiz responses, and an optional skill assessment section the user can choose to take or skip.",
+      "reqIds": [
+        "REQ-6"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-implement-the-skill-assessment-module-accessible-from-the-dashboard-present-categorised-assessments-programming-communication-data-analysis-problem-solving-leadership-arts-commerce-business-healthcare-and-additional-domain-specific-tests-each-assessment-consists-of-multiple-questions-on-completion-show-a-scored-result-and-save-it-to-the-user-s-profile-integrate-results-into-the-ai-recommendation-to-refine-job-suggestions",
+      "title": "Implement the Skill Assessment module accessible from the Dashboard. Present categorised assessments: Programming, Communication, Data Analysis, Problem Solving, Leadership, Arts, Commerce, Business, Healthcare, and additional domain-specific tests. Each assessment consists of multiple questions. On completion, show a scored result and save it to the user's profile. Integrate results into the AI recommendation to refine job suggestions.",
+      "reqIds": [
+        "REQ-7"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-build-the-user-profile-page-after-signup-the-user-can-view-and-edit-their-profile-information-name-email-profile-photo-bio-current-skills-and-saved-assessments-quiz-results-profile-updates-must-be-persisted-to-the-backend-the-profile-page-must-be-accessible-from-a-persistent-navigation-element",
+      "title": "Build the User Profile page. After signup, the user can view and edit their profile information (name, email, profile photo, bio, current skills, and saved assessments/quiz results). Profile updates must be persisted to the backend. The profile page must be accessible from a persistent navigation element.",
+      "reqIds": [
+        "REQ-8"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-apply-a-consistent-white-and-purple-visual-theme-across-all-pages-use-a-white-background-with-purple-as-the-primary-accent-color-for-buttons-headings-highlights-and-interactive-elements-typography-should-be-clean-and-readable-layout-must-be-responsive-for-both-desktop-and-mobile-navigation-should-be-persistent-across-all-authenticated-pages",
+      "title": "Apply a consistent white and purple visual theme across all pages. Use a white background with purple as the primary accent color for buttons, headings, highlights, and interactive elements. Typography should be clean and readable. Layout must be responsive for both desktop and mobile. Navigation should be persistent across all authenticated pages.",
+      "reqIds": [
+        "REQ-10"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-update-all-user-facing-occurrences-of-the-website-app-name-to-kick-start-career-s-across-the-entire-frontend-this-includes-the-html-page-title-in-frontend-index-html-the-logo-brand-text-in-the-navigation-bar-frontend-src-components-layout-tsx-the-login-page-branding-frontend-src-pages-loginpage-tsx-the-career-kick-start-page-frontend-src-pages-careerkickstartpage-tsx-and-any-other-page-or-component-that-displays-the-app-name",
+      "title": "Update all user-facing occurrences of the website/app name to \"Kick-Start Career's\" across the entire frontend. This includes the HTML page title in frontend/index.html, the logo/brand text in the navigation bar (frontend/src/components/Layout.tsx), the Login page branding (frontend/src/pages/LoginPage.tsx), the Career Kick Start page (frontend/src/pages/CareerKickStartPage.tsx), and any other page or component that displays the app name.",
+      "reqIds": [
+        "REQ-11"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-investigate-and-fix-the-failed-to-submit-quiz-error-in-the-quiz-submission-flow-audit-the-submitquizanswers-or-equivalent-mutation-in-frontend-src-hooks-usequeries-ts-and-the-corresponding-backend-handler-in-backend-main-mo-ensure-the-data-shape-sent-from-quizquestionspage-tsx-matches-the-expected-backend-parameter-types-e-g-sector-answers-array-question-ids-fix-any-type-mismatches-missing-fields-incorrect-candid-encoding-or-error-handling-gaps-on-successful-fix-the-quiz-must-submit-without-error-and-navigate-the-user-to-the-dashboard",
+      "title": "Investigate and fix the 'failed to submit quiz' error in the quiz submission flow. Audit the submitQuizAnswers (or equivalent) mutation in frontend/src/hooks/useQueries.ts and the corresponding backend handler in backend/main.mo. Ensure the data shape sent from QuizQuestionsPage.tsx matches the expected backend parameter types (e.g., sector, answers array, question IDs). Fix any type mismatches, missing fields, incorrect Candid encoding, or error-handling gaps. On successful fix, the quiz must submit without error and navigate the user to the Dashboard.",
+      "reqIds": [
+        "REQ-12"
+      ],
+      "version": 1
+    }
+  ],
+  "new_feature_requests": [
+    {
+      "id": "AR-1",
+      "summary": "Login/signup page dedicated to the website with authentication",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-2",
+      "summary": "Career Kick Start landing page with two options: Begin Your Journey and View Roadmap",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-3",
+      "summary": "Interest-based quiz (up to 15 questions) with sector selection at the start",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-4",
+      "summary": "Job search page with search bar to find any job role",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-5",
+      "summary": "Job description page showing description, market growth, future scope, average salary, roadmap, key skills, and beginner/intermediate/advanced skill breakdown",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-6",
+      "summary": "Dashboard shown after quiz with skill assessment test option (programming, communication, data analysis, problem solving, leadership, arts, commerce, business, healthcare, etc.)",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-7",
+      "summary": "User profile page with editable fields, updatable after signup and at any time",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-8",
+      "summary": "AI-driven recommendations linking quiz results and skill assessments to job paths and roadmaps",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-17",
+      "summary": "Implement AI-driven recommendation logic in the backend. Using the user's quiz responses, chosen sector, and skill assessment results, compute a ranked list of recommended job roles. Expose this as an API endpoint consumed by the Dashboard and refined as the user completes more assessments.",
+      "reqIds": [
+        "REQ-9"
+      ],
+      "status": "pending"
+    }
+  ],
+  "gameProjectType": "none",
+  "projectName": "AI Career Path Recommendation System",
+  "clarification_mode": "instant",
+  "clarification_rounds": 0
+}

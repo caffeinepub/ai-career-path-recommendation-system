@@ -1,0 +1,26 @@
+{
+  "kind": "feature_evidence_report",
+  "features": [
+    {
+      "featureId": "feature-investigate-and-fix-the-failed-to-submit-quiz-error-in-the-quiz-submission-flow-audit-the-submitquizanswers-or-equivalent-mutation-in-frontend-src-hooks-usequeries-ts-and-the-corresponding-backend-handler-in-backend-main-mo-ensure-the-data-shape-sent-from-quizquestionspage-tsx-matches-the-expected-backend-parameter-types-e-g-sector-answers-array-question-ids-fix-any-type-mismatches-missing-fields-incorrect-candid-encoding-or-error-handling-gaps-on-successful-fix-the-quiz-must-submit-without-error-and-navigate-the-user-to-the-dashboard",
+      "featureTitle": "Investigate and fix the 'failed to submit quiz' error in the quiz submission flow. Audit the submitQuizAnswers (or equivalent) mutation in frontend/src/hooks/useQueries.ts and the corresponding backend handler in backend/main.mo. Ensure the data shape sent from QuizQuestionsPage.tsx matches the expected backend parameter types (e.g., sector, answers array, question IDs). Fix any type mismatches, missing fields, incorrect Candid encoding, or error-handling gaps. On successful fix, the quiz must submit without error and navigate the user to the Dashboard.",
+      "files": [
+        "frontend/src/hooks/useQueries.ts",
+        "frontend/src/pages/QuizQuestionsPage.tsx"
+      ],
+      "components": [
+        "authorization@4.0.0",
+        "blob-storage@4.0.0",
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-12"
+      ],
+      "confidence": "high"
+    }
+  ]
+}

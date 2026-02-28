@@ -1,0 +1,43 @@
+{
+  "kind": "build_request",
+  "title": "Fix quiz submission failure",
+  "projectName": "Kick-Start Career's",
+  "priority": "high",
+  "requirements": [
+    {
+      "id": "REQ-12",
+      "text": "Investigate and fix the 'failed to submit quiz' error in the quiz submission flow. Audit the submitQuizAnswers (or equivalent) mutation in frontend/src/hooks/useQueries.ts and the corresponding backend handler in backend/main.mo. Ensure the data shape sent from QuizQuestionsPage.tsx matches the expected backend parameter types (e.g., sector, answers array, question IDs). Fix any type mismatches, missing fields, incorrect Candid encoding, or error-handling gaps. On successful fix, the quiz must submit without error and navigate the user to the Dashboard.",
+      "target": "both",
+      "source": {
+        "messageIds": [
+          "msg-1"
+        ],
+        "quotes": [
+          "It's showing \"failed to submit quiz\""
+        ]
+      },
+      "acceptanceCriteria": [
+        "Completing the quiz and pressing submit no longer shows the 'failed to submit quiz' error message.",
+        "Quiz responses are successfully persisted to the backend after submission.",
+        "After successful submission, the user is navigated to the Dashboard page.",
+        "The backend correctly receives and stores the sector, question IDs, and selected answers.",
+        "Any prior quiz submission data for the same user is handled gracefully (overwrite or append as appropriate).",
+        "If submission fails for a legitimate reason (e.g., unauthenticated), a meaningful error message is shown rather than a generic failure."
+      ]
+    }
+  ],
+  "constraints": [
+    "Do not modify files under frontend/src/hooks/useInternetIdentity.ts, frontend/src/hooks/useActor.ts, frontend/src/main.tsx, or frontend/src/components/ui.",
+    "Backend must remain a single Motoko actor in backend/main.mo.",
+    "Do not change the quiz question content or sector selection UI beyond what is needed to fix the submission bug."
+  ],
+  "nonGoals": [
+    "Adding new quiz questions or sectors.",
+    "Changing the visual design of the quiz pages.",
+    "Implementing new recommendation logic beyond fixing the submission."
+  ],
+  "imageRequirements": {
+    "required": [],
+    "edits": []
+  }
+}

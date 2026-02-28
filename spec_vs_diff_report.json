@@ -1,0 +1,46 @@
+{
+  "kind": "spec_vs_diff_report",
+  "version": "1.0",
+  "generatedAt": "2026-02-28T20:24:21.752Z",
+  "summary": "The diff addresses REQ-12 by fixing the quiz submission flow. Key changes include: renaming useSubmitQuizResponses to useSubmitQuizAnswers in useQueries.ts, correcting the mutation to call actor.submitQuizAnswers(sector, answers) with proper types, fixing QuizQuestionsPage.tsx to construct a full Sector object from URL params and reference result.answers instead of result.responses, updating SectorSelectionPage.tsx to pass sectorName and sectorDescription in URL params, updating backend/main.mo to use answers field and the correct submitQuizAnswers signature, and adding a migration module. Most acceptance criteria appear addressed, though navigation to Dashboard after submission and meaningful error messaging need closer inspection.",
+  "missing_requirements": [
+    {
+      "id": "REQ-12",
+      "requirement": "After successful submission, the user is navigated to the Dashboard page.",
+      "reason": "The useQueries.ts onSuccess callback only invalidates queries but does not navigate. No router navigation call in QuizQuestionsPage is confirmed in the truncated diff. The file summary mentions the fix but does not explicitly confirm Dashboard navigation on success.",
+      "evidence": [
+        "frontend/src/pages/QuizQuestionsPage.tsx",
+        "frontend/src/hooks/useQueries.ts"
+      ]
+    },
+    {
+      "id": "REQ-12",
+      "requirement": "If submission fails for a legitimate reason (e.g., unauthenticated), a meaningful error message is shown rather than a generic failure.",
+      "reason": "The backend traps with an unauthorized message but the frontend diff does not show an explicit onError handler in the mutation that surfaces a meaningful, context-specific error message to the user as opposed to the prior generic failure.",
+      "evidence": [
+        "frontend/src/hooks/useQueries.ts",
+        "frontend/src/pages/QuizQuestionsPage.tsx"
+      ]
+    }
+  ],
+  "hallucinated_features": [
+    {
+      "description": "A standalone migration module (backend/migration.mo) was added to convert old responses field to answers field in stored quiz results.",
+      "reason": "The build request did not request a migration module or any data migration logic. It only asked to fix type mismatches and submission bugs.",
+      "evidence": [
+        "backend/migration.mo",
+        "backend/main.mo"
+      ]
+    }
+  ],
+  "confidence": 0.72,
+  "changed_files": [
+    "backend/main.mo",
+    "backend/migration.mo",
+    "frontend-file-summaries.txt",
+    "frontend/src/hooks/useQueries.ts",
+    "frontend/src/pages/QuizQuestionsPage.tsx",
+    "frontend/src/pages/SectorSelectionPage.tsx",
+    "project_state.json"
+  ]
+}
