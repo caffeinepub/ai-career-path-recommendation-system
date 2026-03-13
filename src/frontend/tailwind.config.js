@@ -16,8 +16,8 @@ export default {
     },
     extend: {
       fontFamily: {
-        sans: ['Inter', 'system-ui', 'sans-serif'],
-        display: ['Plus Jakarta Sans', 'Inter', 'system-ui', 'sans-serif'],
+        sans: ['"Plus Jakarta Sans"', 'system-ui', 'sans-serif'],
+        display: ['"Cabinet Grotesk"', '"Plus Jakarta Sans"', 'system-ui', 'sans-serif'],
       },
       colors: {
         border: 'oklch(var(--border))',
@@ -91,9 +91,10 @@ export default {
         '2xl': 'calc(var(--radius) + 8px)',
       },
       boxShadow: {
-        xs: '0 1px 2px 0 rgba(0,0,0,0.05)',
-        purple: '0 4px 24px oklch(0.52 0.22 285 / 0.15)',
-        'purple-lg': '0 8px 40px oklch(0.52 0.22 285 / 0.2)',
+        xs: '0 1px 2px 0 oklch(20% 0.12 278 / 0.05)',
+        purple: '0 4px 24px oklch(38% 0.22 278 / 0.18)',
+        'purple-lg': '0 8px 40px oklch(38% 0.22 278 / 0.25)',
+        card: '0 2px 12px oklch(20% 0.12 278 / 0.06)',
       },
       keyframes: {
         'accordion-down': {

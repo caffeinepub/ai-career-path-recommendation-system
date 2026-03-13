@@ -100,6 +100,8 @@ export const idlService = IDL.Service({
   '_caffeineStorageUpdateGatewayPrincipals' : IDL.Func([], [], []),
   '_initializeAccessControlWithSecret' : IDL.Func([IDL.Text], [], []),
   'assignCallerUserRole' : IDL.Func([IDL.Principal, UserRole], [], []),
+  'authenticateUser' : IDL.Func([IDL.Text, IDL.Text], [IDL.Bool], []),
+  'changePassword' : IDL.Func([IDL.Text, IDL.Text, IDL.Text], [IDL.Bool], []),
   'getAvailableRoadmaps' : IDL.Func([IDL.Nat], [IDL.Vec(Roadmap)], ['query']),
   'getAvailableSectors' : IDL.Func([], [IDL.Vec(Sector)], ['query']),
   'getCallerUserProfile' : IDL.Func([], [IDL.Opt(UserProfile)], ['query']),
@@ -112,6 +114,7 @@ export const idlService = IDL.Service({
       ['query'],
     ),
   'isCallerAdmin' : IDL.Func([], [IDL.Bool], ['query']),
+  'register' : IDL.Func([IDL.Text, IDL.Text], [IDL.Bool], []),
   'saveCallerUserProfile' : IDL.Func([UserProfile], [], []),
   'submitQuizAnswers' : IDL.Func(
       [Sector, IDL.Vec(IDL.Nat)],
@@ -123,6 +126,7 @@ export const idlService = IDL.Service({
       [UserProfile],
       [],
     ),
+  'usernameExists' : IDL.Func([IDL.Text], [IDL.Bool], ['query']),
 });
 
 export const idlInitArgs = [];
@@ -220,6 +224,8 @@ export const idlFactory = ({ IDL }) => {
     '_caffeineStorageUpdateGatewayPrincipals' : IDL.Func([], [], []),
     '_initializeAccessControlWithSecret' : IDL.Func([IDL.Text], [], []),
     'assignCallerUserRole' : IDL.Func([IDL.Principal, UserRole], [], []),
+    'authenticateUser' : IDL.Func([IDL.Text, IDL.Text], [IDL.Bool], []),
+    'changePassword' : IDL.Func([IDL.Text, IDL.Text, IDL.Text], [IDL.Bool], []),
     'getAvailableRoadmaps' : IDL.Func([IDL.Nat], [IDL.Vec(Roadmap)], ['query']),
     'getAvailableSectors' : IDL.Func([], [IDL.Vec(Sector)], ['query']),
     'getCallerUserProfile' : IDL.Func([], [IDL.Opt(UserProfile)], ['query']),
@@ -236,6 +242,7 @@ export const idlFactory = ({ IDL }) => {
         ['query'],
       ),
     'isCallerAdmin' : IDL.Func([], [IDL.Bool], ['query']),
+    'register' : IDL.Func([IDL.Text, IDL.Text], [IDL.Bool], []),
     'saveCallerUserProfile' : IDL.Func([UserProfile], [], []),
     'submitQuizAnswers' : IDL.Func(
         [Sector, IDL.Vec(IDL.Nat)],
@@ -247,6 +254,7 @@ export const idlFactory = ({ IDL }) => {
         [UserProfile],
         [],
       ),
+    'usernameExists' : IDL.Func([IDL.Text], [IDL.Bool], ['query']),
   });
 };
 

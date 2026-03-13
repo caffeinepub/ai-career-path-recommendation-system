@@ -161,7 +161,7 @@ export default function AssessmentTestPage() {
 
               <Button
                 onClick={() => setTestState("testing")}
-                className="w-full h-12 gradient-purple text-white font-semibold shadow-purple hover:shadow-purple-lg transition-all rounded-xl"
+                className="w-full h-12 bg-primary text-primary-foreground font-semibold shadow-purple hover:shadow-purple-lg hover:opacity-90 transition-all rounded-xl"
               >
                 <Award className="w-4 h-4 mr-2" />
                 Start Assessment
@@ -186,7 +186,10 @@ export default function AssessmentTestPage() {
 
               <div>
                 <h2 className="font-display font-bold text-2xl text-foreground mb-1">
-                  Assessment Complete!
+                  <span style={{ color: "oklch(60% 0.22 285)" }}>
+                    Assessment
+                  </span>{" "}
+                  Complete!
                 </h2>
                 <p className="text-muted-foreground text-sm">
                   {category?.name} — Your results have been saved
@@ -195,7 +198,10 @@ export default function AssessmentTestPage() {
 
               {/* Score display */}
               <div className="bg-primary/5 rounded-2xl p-6 border border-primary/20">
-                <p className="text-5xl font-display font-bold text-primary mb-2">
+                <p
+                  className="text-5xl font-display font-bold mb-2"
+                  style={{ color: "oklch(38% 0.22 278)" }}
+                >
                   {score}%
                 </p>
                 <Badge
@@ -258,7 +264,7 @@ export default function AssessmentTestPage() {
               <div className="flex flex-col gap-3">
                 <Button
                   asChild
-                  className="gradient-purple text-white font-semibold shadow-purple hover:shadow-purple-lg transition-all"
+                  className="bg-primary text-primary-foreground font-semibold shadow-purple hover:shadow-purple-lg hover:opacity-90 transition-all"
                 >
                   <a href="/dashboard">View Dashboard</a>
                 </Button>
@@ -307,7 +313,10 @@ export default function AssessmentTestPage() {
         >
           <CardContent className="p-6 sm:p-8">
             <div className="mb-6">
-              <span className="text-xs font-semibold text-primary uppercase tracking-wider">
+              <span
+                className="text-xs font-semibold uppercase tracking-wider"
+                style={{ color: "oklch(60% 0.22 285)" }}
+              >
                 Question {currentIndex + 1}
               </span>
               <h2 className="font-display font-bold text-xl text-foreground mt-2 leading-relaxed">
@@ -369,7 +378,7 @@ export default function AssessmentTestPage() {
             <Button
               onClick={handleSubmit}
               disabled={selectedAnswer === undefined || isSaving}
-              className="gradient-purple text-white font-semibold px-8 h-11 shadow-purple hover:shadow-purple-lg transition-all rounded-xl"
+              className="bg-primary text-primary-foreground font-semibold px-8 h-11 shadow-purple hover:shadow-purple-lg hover:opacity-90 transition-all rounded-xl"
             >
               {isSaving ? (
                 <>
@@ -387,7 +396,7 @@ export default function AssessmentTestPage() {
             <Button
               onClick={handleNext}
               disabled={selectedAnswer === undefined}
-              className="gradient-purple text-white font-semibold px-8 h-11 shadow-purple hover:shadow-purple-lg transition-all rounded-xl"
+              className="bg-primary text-primary-foreground font-semibold px-8 h-11 shadow-purple hover:shadow-purple-lg hover:opacity-90 transition-all rounded-xl"
             >
               Next
               <ArrowRight className="w-4 h-4 ml-2" />

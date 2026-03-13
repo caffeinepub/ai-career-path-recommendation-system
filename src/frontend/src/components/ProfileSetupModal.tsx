@@ -98,7 +98,7 @@ export default function ProfileSetupModal() {
 
           <Button
             type="submit"
-            className="w-full h-11 gradient-purple text-white font-semibold shadow-purple hover:shadow-purple-lg transition-all"
+            className="w-full h-11 bg-primary text-primary-foreground font-semibold shadow-purple hover:shadow-purple-lg hover:opacity-90 transition-all"
             disabled={isPending}
           >
             {isPending ? (

@@ -98,7 +98,8 @@ const ALL_JOBS = [
     jobId: "doctor",
     role: "Doctor/Physician",
     sector: "Healthcare",
-    description: "Diagnose and treat medical conditions and diseases",
+    description:
+      "Diagnose and treat medical conditions to improve patient health",
     salary: "$200k–$350k",
     growth: "3%",
   },
@@ -106,7 +107,7 @@ const ALL_JOBS = [
     jobId: "nurse",
     role: "Registered Nurse",
     sector: "Healthcare",
-    description: "Provide patient care and coordinate medical treatments",
+    description: "Provide direct patient care and assist in medical procedures",
     salary: "$65k–$100k",
     growth: "6%",
   },
@@ -114,7 +115,7 @@ const ALL_JOBS = [
     jobId: "pharmacist",
     role: "Pharmacist",
     sector: "Healthcare",
-    description: "Dispense medications and advise on drug therapy",
+    description: "Dispense medications and counsel patients on drug therapy",
     salary: "$120k–$150k",
     growth: "2%",
   },
@@ -122,17 +123,9 @@ const ALL_JOBS = [
     jobId: "health-admin",
     role: "Healthcare Administrator",
     sector: "Healthcare",
-    description: "Manage healthcare facilities and administrative operations",
+    description: "Manage healthcare facility operations, staff, and programs",
     salary: "$70k–$120k",
     growth: "28%",
-  },
-  {
-    jobId: "medical-researcher",
-    role: "Medical Researcher",
-    sector: "Healthcare",
-    description: "Conduct research to advance medical knowledge and treatments",
-    salary: "$75k–$130k",
-    growth: "8%",
   },
   {
     jobId: "physical-therapist",
@@ -154,7 +147,7 @@ const ALL_JOBS = [
   {
     jobId: "marketing-manager",
     role: "Marketing Manager",
-    sector: "Business",
+    sector: "Marketing",
     description: "Develop and execute marketing strategies to drive growth",
     salary: "$80k–$140k",
     growth: "10%",
@@ -207,6 +200,42 @@ const ALL_JOBS = [
     description: "Facilitate mergers, acquisitions, and capital raising",
     salary: "$100k–$250k",
     growth: "10%",
+  },
+  // Commerce
+  {
+    jobId: "ecommerce-specialist",
+    role: "E-Commerce Specialist",
+    sector: "Commerce",
+    description:
+      "Manage online stores, product listings, and digital sales channels",
+    salary: "$55k–$90k",
+    growth: "15%",
+  },
+  {
+    jobId: "retail-manager",
+    role: "Retail Manager",
+    sector: "Commerce",
+    description:
+      "Oversee retail store operations, staff, and customer experience",
+    salary: "$50k–$80k",
+    growth: "4%",
+  },
+  {
+    jobId: "logistics-coordinator",
+    role: "Logistics Coordinator",
+    sector: "Commerce",
+    description:
+      "Coordinate transportation, warehousing, and distribution operations",
+    salary: "$50k–$80k",
+    growth: "7%",
+  },
+  {
+    jobId: "purchasing-manager",
+    role: "Purchasing Manager",
+    sector: "Commerce",
+    description: "Oversee procurement strategies and vendor relationships",
+    salary: "$70k–$115k",
+    growth: "5%",
   },
   // Engineering
   {
@@ -274,6 +303,142 @@ const ALL_JOBS = [
     salary: "$75k–$130k",
     growth: "3%",
   },
+  // Education
+  {
+    jobId: "teacher",
+    role: "K-12 Teacher",
+    sector: "Education",
+    description:
+      "Educate students and foster intellectual growth in classroom settings",
+    salary: "$45k–$75k",
+    growth: "5%",
+  },
+  {
+    jobId: "curriculum-designer",
+    role: "Curriculum Designer",
+    sector: "Education",
+    description:
+      "Develop educational programs and learning materials for institutions",
+    salary: "$55k–$90k",
+    growth: "8%",
+  },
+  {
+    jobId: "education-admin",
+    role: "Education Administrator",
+    sector: "Education",
+    description: "Manage school operations, staff, and academic programs",
+    salary: "$65k–$110k",
+    growth: "6%",
+  },
+  {
+    jobId: "instructional-coach",
+    role: "Instructional Coach",
+    sector: "Education",
+    description:
+      "Support teachers in improving pedagogical methods and student outcomes",
+    salary: "$55k–$85k",
+    growth: "7%",
+  },
+  {
+    jobId: "corporate-trainer",
+    role: "Corporate Trainer",
+    sector: "Education",
+    description:
+      "Design and deliver training programs for organizational workforce development",
+    salary: "$60k–$100k",
+    growth: "10%",
+  },
+  // Marketing
+  {
+    jobId: "digital-marketer",
+    role: "Digital Marketing Specialist",
+    sector: "Marketing",
+    description:
+      "Plan and execute digital campaigns across social media and search channels",
+    salary: "$55k–$95k",
+    growth: "14%",
+  },
+  {
+    jobId: "brand-manager",
+    role: "Brand Manager",
+    sector: "Marketing",
+    description:
+      "Define and manage a brand's identity, positioning, and campaigns",
+    salary: "$80k–$130k",
+    growth: "10%",
+  },
+  {
+    jobId: "seo-specialist",
+    role: "SEO Specialist",
+    sector: "Marketing",
+    description: "Optimize websites to rank higher in search engine results",
+    salary: "$50k–$85k",
+    growth: "12%",
+  },
+  {
+    jobId: "content-strategist",
+    role: "Content Strategist",
+    sector: "Marketing",
+    description:
+      "Plan and oversee content creation aligned with business goals",
+    salary: "$60k–$100k",
+    growth: "11%",
+  },
+  {
+    jobId: "market-research-analyst",
+    role: "Market Research Analyst",
+    sector: "Marketing",
+    description:
+      "Gather data on consumers and market conditions to guide strategy",
+    salary: "$55k–$90k",
+    growth: "13%",
+  },
+  // Science
+  {
+    jobId: "research-scientist",
+    role: "Research Scientist",
+    sector: "Science",
+    description:
+      "Conduct experiments and research to advance scientific knowledge",
+    salary: "$75k–$130k",
+    growth: "8%",
+  },
+  {
+    jobId: "environmental-scientist",
+    role: "Environmental Scientist",
+    sector: "Science",
+    description:
+      "Study environmental problems and develop solutions for sustainability",
+    salary: "$65k–$105k",
+    growth: "8%",
+  },
+  {
+    jobId: "biotechnologist",
+    role: "Biotechnologist",
+    sector: "Science",
+    description:
+      "Apply biological systems to develop products and technologies",
+    salary: "$70k–$120k",
+    growth: "11%",
+  },
+  {
+    jobId: "chemist",
+    role: "Chemist",
+    sector: "Science",
+    description:
+      "Analyze substances and develop new materials, drugs, and processes",
+    salary: "$65k–$110k",
+    growth: "6%",
+  },
+  {
+    jobId: "data-analyst-science",
+    role: "Scientific Data Analyst",
+    sector: "Science",
+    description:
+      "Process and analyze large scientific datasets for research insights",
+    salary: "$70k–$115k",
+    growth: "15%",
+  },
 ];
 
 const SECTOR_COLORS: Record<string, string> = {
@@ -284,6 +449,9 @@ const SECTOR_COLORS: Record<string, string> = {
   Engineering: "bg-gray-100 text-gray-700",
   Arts: "bg-pink-100 text-pink-700",
   Commerce: "bg-orange-100 text-orange-700",
+  Education: "bg-teal-100 text-teal-700",
+  Marketing: "bg-rose-100 text-rose-700",
+  Science: "bg-cyan-100 text-cyan-700",
 };
 
 const SECTOR_ICONS: Record<string, string> = {
@@ -294,6 +462,9 @@ const SECTOR_ICONS: Record<string, string> = {
   Engineering: "⚙️",
   Arts: "🎨",
   Commerce: "📈",
+  Education: "📚",
+  Marketing: "📣",
+  Science: "🔬",
 };
 
 export default function JobSearchPage() {
@@ -325,7 +496,8 @@ export default function JobSearchPage() {
         {/* Header */}
         <div className="mb-8 animate-fade-in">
           <h1 className="font-display font-bold text-3xl text-foreground mb-2">
-            Explore Career Paths
+            Explore{" "}
+            <span style={{ color: "oklch(60% 0.22 285)" }}>Career Paths</span>
           </h1>
           <p className="text-muted-foreground">
             Search for any job role to view detailed descriptions, roadmaps, and
@@ -337,6 +509,7 @@ export default function JobSearchPage() {
         <div className="relative mb-6">
           <Search className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-muted-foreground pointer-events-none" />
           <Input
+            data-ocid="jobs.search_input"
             type="text"
             placeholder="Search job roles, skills, or sectors..."
             value={query}
@@ -357,12 +530,13 @@ export default function JobSearchPage() {
         {/* Sector filters */}
         <div className="flex flex-wrap gap-2 mb-8">
           <Button
+            data-ocid="jobs.filter.tab"
             variant={selectedSector === null ? "default" : "outline"}
             size="sm"
             onClick={() => setSelectedSector(null)}
             className={
               selectedSector === null
-                ? "gradient-purple text-white shadow-purple"
+                ? "bg-primary text-primary-foreground shadow-purple hover:opacity-90"
                 : "border-border text-muted-foreground hover:border-primary/40"
             }
           >
@@ -371,6 +545,7 @@ export default function JobSearchPage() {
           {sectors.map((sector) => (
             <Button
               key={sector}
+              data-ocid="jobs.filter.tab"
               variant={selectedSector === sector ? "default" : "outline"}
               size="sm"
               onClick={() =>
@@ -378,7 +553,7 @@ export default function JobSearchPage() {
               }
               className={
                 selectedSector === sector
-                  ? "gradient-purple text-white shadow-purple"
+                  ? "bg-primary text-primary-foreground shadow-purple hover:opacity-90"
                   : "border-border text-muted-foreground hover:border-primary/40"
               }
             >
@@ -406,7 +581,7 @@ export default function JobSearchPage() {
 
         {/* Job results */}
         {filteredJobs.length === 0 ? (
-          <div className="text-center py-16">
+          <div data-ocid="jobs.empty_state" className="text-center py-16">
             <div className="w-16 h-16 bg-muted rounded-2xl flex items-center justify-center mx-auto mb-4">
               <Briefcase className="w-8 h-8 text-muted-foreground" />
             </div>
@@ -431,9 +606,10 @@ export default function JobSearchPage() {
           </div>
         ) : (
           <div className="grid sm:grid-cols-2 gap-4">
-            {filteredJobs.map((job) => (
+            {filteredJobs.map((job, idx) => (
               <Card
                 key={job.jobId}
+                data-ocid={`jobs.item.${idx + 1}`}
                 className="border border-border hover:border-primary/30 card-hover cursor-pointer"
               >
                 <CardContent className="p-5">

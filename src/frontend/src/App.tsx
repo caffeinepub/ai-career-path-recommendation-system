@@ -5,9 +5,8 @@ import {
   createRootRoute,
   createRoute,
   createRouter,
-  redirect,
 } from "@tanstack/react-router";
-import { useInternetIdentity } from "./hooks/useInternetIdentity";
+import { useLocalAuth } from "./hooks/useLocalAuth";
 import { useGetCallerUserProfile } from "./hooks/useQueries";
 
 import Layout from "./components/Layout";
@@ -23,7 +22,6 @@ import QuizQuestionsPage from "./pages/QuizQuestionsPage";
 import SectorSelectionPage from "./pages/SectorSelectionPage";
 import SkillAssessmentPage from "./pages/SkillAssessmentPage";
 
-// Root route with layout
 const rootRoute = createRootRoute({
   component: RootComponent,
 });
@@ -37,14 +35,12 @@ function RootComponent() {
   );
 }
 
-// Login route (public)
 const loginRoute = createRoute({
   getParentRoute: () => rootRoute,
   path: "/login",
   component: LoginPage,
 });
 
-// Authenticated layout route
 const authenticatedRoute = createRoute({
   getParentRoute: () => rootRoute,
   id: "authenticated",
@@ -52,7 +48,7 @@ const authenticatedRoute = createRoute({
 });
 
 function AuthenticatedLayout() {
-  const { identity, isInitializing } = useInternetIdentity();
+  const { identity, isInitializing } = useLocalAuth();
   const {
     data: userProfile,
     isLoading: profileLoading,
@@ -89,7 +85,6 @@ function AuthenticatedLayout() {
   );
 }
 
-// Index redirect
 const indexRoute = createRoute({
   getParentRoute: () => rootRoute,
   path: "/",
@@ -99,7 +94,6 @@ const indexRoute = createRoute({
   },
 });
 
-// Protected routes
 const careerKickStartRoute = createRoute({
   getParentRoute: () => authenticatedRoute,
   path: "/career-kickstart",

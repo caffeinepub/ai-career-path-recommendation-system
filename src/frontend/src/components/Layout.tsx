@@ -20,7 +20,7 @@ import {
 } from "lucide-react";
 import type React from "react";
 import { useState } from "react";
-import { useInternetIdentity } from "../hooks/useInternetIdentity";
+import { useLocalAuth } from "../hooks/useLocalAuth";
 import { useGetCallerUserProfile } from "../hooks/useQueries";
 
 interface LayoutProps {
@@ -35,7 +35,7 @@ const navLinks = [
 ];
 
 export default function Layout({ children }: LayoutProps) {
-  const { clear } = useInternetIdentity();
+  const { clear, currentUsername } = useLocalAuth();
   const queryClient = useQueryClient();
   const { data: userProfile } = useGetCallerUserProfile();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -43,7 +43,7 @@ export default function Layout({ children }: LayoutProps) {
   const currentPath = window.location.pathname;
 
   const handleLogout = async () => {
-    await clear();
+    clear();
     queryClient.clear();
     window.location.href = "/login";
   };
@@ -57,36 +57,29 @@ export default function Layout({ children }: LayoutProps) {
       .slice(0, 2);
   };
 
-  const displayName = userProfile?.name || "User";
+  const displayName = userProfile?.name || currentUsername || "User";
 
   return (
     <div className="min-h-screen bg-background flex flex-col">
-      {/* Top Navigation */}
-      <header className="sticky top-0 z-50 bg-white/95 backdrop-blur-sm border-b border-border shadow-xs">
+      <header
+        className="sticky top-0 z-50 backdrop-blur-sm border-b border-border shadow-xs"
+        style={{ background: "oklch(99% 0.01 280 / 0.95)" }}
+      >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between h-16">
-            {/* Logo */}
             <a
               href="/career-kickstart"
               className="flex items-center gap-2.5 group"
+              data-ocid="nav.link"
             >
               <div className="w-8 h-8 rounded-lg gradient-purple flex items-center justify-center shadow-purple">
-                <img
-                  src="/assets/generated/logo-icon.dim_256x256.png"
-                  alt="Kick-Start Career's"
-                  className="w-6 h-6 object-contain"
-                  onError={(e) => {
-                    (e.target as HTMLImageElement).style.display = "none";
-                  }}
-                />
-                <Sparkles className="w-4 h-4 text-white hidden" />
+                <Sparkles className="w-4 h-4 text-white" />
               </div>
-              <span className="font-display font-bold text-lg text-foreground group-hover:text-primary transition-colors">
+              <span className="font-display font-bold text-lg text-primary group-hover:text-primary/80 transition-colors">
                 Kick-Start Career's
               </span>
             </a>
 
-            {/* Desktop Nav */}
             <nav className="hidden md:flex items-center gap-1">
               {navLinks.map((link) => {
                 const Icon = link.icon;
@@ -95,6 +88,7 @@ export default function Layout({ children }: LayoutProps) {
                   <a
                     key={link.href}
                     href={link.href}
+                    data-ocid="nav.link"
                     className={`flex items-center gap-1.5 px-3 py-2 rounded-lg text-sm font-medium transition-all duration-150 ${
                       isActive
                         ? "bg-primary/10 text-primary"
@@ -108,14 +102,13 @@ export default function Layout({ children }: LayoutProps) {
               })}
             </nav>
 
-            {/* Right side */}
             <div className="flex items-center gap-3">
-              {/* Profile dropdown */}
               <DropdownMenu>
                 <DropdownMenuTrigger asChild>
                   <button
                     type="button"
                     className="flex items-center gap-2 px-2 py-1.5 rounded-lg hover:bg-accent transition-colors"
+                    data-ocid="nav.dropdown_menu"
                   >
                     <Avatar className="w-8 h-8">
                       <AvatarFallback className="bg-primary/10 text-primary text-xs font-semibold">
@@ -133,6 +126,7 @@ export default function Layout({ children }: LayoutProps) {
                     <a
                       href="/profile"
                       className="flex items-center gap-2 cursor-pointer"
+                      data-ocid="nav.link"
                     >
                       <User className="w-4 h-4" />
                       My Profile
@@ -142,6 +136,7 @@ export default function Layout({ children }: LayoutProps) {
                   <DropdownMenuItem
                     onClick={handleLogout}
                     className="flex items-center gap-2 text-destructive focus:text-destructive cursor-pointer"
+                    data-ocid="nav.button"
                   >
                     <LogOut className="w-4 h-4" />
                     Logout
@@ -149,7 +144,6 @@ export default function Layout({ children }: LayoutProps) {
                 </DropdownMenuContent>
               </DropdownMenu>
 
-              {/* Mobile menu toggle */}
               <button
                 type="button"
                 className="md:hidden p-2 rounded-lg hover:bg-accent transition-colors"
@@ -165,9 +159,11 @@ export default function Layout({ children }: LayoutProps) {
           </div>
         </div>
 
-        {/* Mobile menu */}
         {mobileMenuOpen && (
-          <div className="md:hidden border-t border-border bg-white px-4 py-3 space-y-1">
+          <div
+            className="md:hidden border-t border-border px-4 py-3 space-y-1"
+            style={{ background: "oklch(99% 0.01 280)" }}
+          >
             {navLinks.map((link) => {
               const Icon = link.icon;
               const isActive = currentPath === link.href;
@@ -175,6 +171,7 @@ export default function Layout({ children }: LayoutProps) {
                 <a
                   key={link.href}
                   href={link.href}
+                  data-ocid="nav.link"
                   className={`flex items-center gap-2 px-3 py-2.5 rounded-lg text-sm font-medium transition-colors ${
                     isActive
                       ? "bg-primary/10 text-primary"
@@ -191,6 +188,7 @@ export default function Layout({ children }: LayoutProps) {
               <button
                 type="button"
                 onClick={handleLogout}
+                data-ocid="nav.button"
                 className="flex items-center gap-2 px-3 py-2.5 rounded-lg text-sm font-medium text-destructive hover:bg-destructive/10 w-full transition-colors"
               >
                 <LogOut className="w-4 h-4" />
@@ -201,27 +199,7 @@ export default function Layout({ children }: LayoutProps) {
         )}
       </header>
 
-      {/* Main content */}
       <main className="flex-1">{children}</main>
-
-      {/* Footer */}
-      <footer className="border-t border-border bg-white py-6 mt-auto">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex flex-col sm:flex-row items-center justify-between gap-3">
-            <div className="flex items-center gap-2">
-              <div className="w-6 h-6 rounded gradient-purple flex items-center justify-center">
-                <Sparkles className="w-3.5 h-3.5 text-white" />
-              </div>
-              <span className="text-sm font-medium text-foreground">
-                Kick-Start Career's
-              </span>
-              <span className="text-muted-foreground text-sm">
-                © {new Date().getFullYear()} All rights reserved.
-              </span>
-            </div>
-          </div>
-        </div>
-      </footer>
     </div>
   );
 }

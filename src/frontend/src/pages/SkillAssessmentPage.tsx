@@ -31,7 +31,8 @@ export default function SkillAssessmentPage() {
                 Skill Assessments
               </div>
               <h1 className="font-display font-bold text-3xl text-foreground mb-2">
-                Validate Your Skills
+                Validate Your{" "}
+                <span style={{ color: "oklch(60% 0.22 285)" }}>Skills</span>
               </h1>
               <p className="text-muted-foreground max-w-xl">
                 Take assessments to discover your strengths, identify areas for
@@ -40,8 +41,11 @@ export default function SkillAssessmentPage() {
               </p>
             </div>
             {completedCount > 0 && (
-              <div className="bg-white border border-border rounded-xl p-4 text-center shadow-xs shrink-0">
-                <p className="font-display font-bold text-2xl text-primary">
+              <div className="bg-card border border-border rounded-xl p-4 text-center shadow-xs shrink-0">
+                <p
+                  className="font-display font-bold text-2xl"
+                  style={{ color: "oklch(38% 0.22 278)" }}
+                >
                   {completedCount}
                 </p>
                 <p className="text-xs text-muted-foreground">
@@ -54,7 +58,7 @@ export default function SkillAssessmentPage() {
 
         {/* Progress bar */}
         {completedCount > 0 && (
-          <div className="bg-white border border-border rounded-xl p-4 mb-8 shadow-xs">
+          <div className="bg-card border border-border rounded-xl p-4 mb-8 shadow-xs">
             <div className="flex items-center justify-between mb-2">
               <span className="text-sm font-medium text-foreground">
                 Overall Progress
@@ -135,7 +139,7 @@ export default function SkillAssessmentPage() {
                     className={`w-full ${
                       isCompleted
                         ? "bg-green-100 text-green-700 hover:bg-green-200 border-0"
-                        : "gradient-purple text-white shadow-purple hover:shadow-purple-lg"
+                        : "bg-primary text-primary-foreground shadow-purple hover:shadow-purple-lg hover:opacity-90"
                     } transition-all`}
                   >
                     <a

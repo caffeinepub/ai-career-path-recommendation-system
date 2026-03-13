@@ -18,17 +18,24 @@ export default function CareerKickStartPage() {
   return (
     <div className="min-h-screen bg-background">
       {/* Hero Section */}
-      <section className="relative overflow-hidden bg-white">
-        <div className="absolute inset-0 gradient-purple-light opacity-50" />
+      <section className="relative overflow-hidden gradient-lavender">
+        <div
+          className="absolute inset-0 opacity-60"
+          style={{
+            background:
+              "radial-gradient(ellipse 80% 60% at 70% 50%, oklch(88% 0.08 278 / 0.4), transparent)",
+          }}
+        />
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 lg:py-24">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div className="space-y-6 animate-fade-in">
-              <div className="inline-flex items-center gap-2 bg-primary/10 text-primary px-4 py-2 rounded-full text-sm font-medium">
+              <div className="inline-flex items-center gap-2 bg-primary/10 border border-primary/20 text-primary px-4 py-2 rounded-full text-sm font-semibold">
                 <Sparkles className="w-4 h-4" />
                 AI-Powered Career Guidance
               </div>
               <h1 className="font-display font-bold text-4xl lg:text-5xl xl:text-6xl text-foreground leading-tight">
-                Career <span className="text-gradient-purple">Kick Start</span>
+                Career{" "}
+                <span style={{ color: "oklch(60% 0.22 285)" }}>Kick Start</span>
               </h1>
               <p className="text-lg text-muted-foreground leading-relaxed max-w-lg">
                 Welcome back,{" "}
@@ -40,17 +47,22 @@ export default function CareerKickStartPage() {
               </p>
 
               {/* Stats */}
-              <div className="flex gap-6 pt-2">
+              <div className="flex gap-8 pt-2">
                 {[
                   { value: "50+", label: "Career Paths" },
                   { value: "15", label: "Quiz Questions" },
                   { value: "12", label: "Skill Tests" },
                 ].map(({ value, label }) => (
                   <div key={label}>
-                    <p className="font-display font-bold text-2xl text-primary">
+                    <p
+                      className="font-display font-bold text-3xl"
+                      style={{ color: "oklch(38% 0.22 278)" }}
+                    >
                       {value}
                     </p>
-                    <p className="text-xs text-muted-foreground">{label}</p>
+                    <p className="text-xs text-muted-foreground mt-0.5">
+                      {label}
+                    </p>
                   </div>
                 ))}
               </div>
@@ -78,7 +90,8 @@ export default function CareerKickStartPage() {
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
         <div className="text-center mb-12">
           <h2 className="font-display font-bold text-3xl text-foreground mb-3">
-            How would you like to start?
+            How would you like to{" "}
+            <span style={{ color: "oklch(60% 0.22 285)" }}>start?</span>
           </h2>
           <p className="text-muted-foreground max-w-xl mx-auto">
             Choose your path — take our interest quiz for personalized
@@ -174,10 +187,13 @@ export default function CareerKickStartPage() {
       </section>
 
       {/* Features section */}
-      <section className="bg-purple-50 py-16">
+      <section className="py-16" style={{ background: "oklch(94% 0.025 278)" }}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <h2 className="font-display font-bold text-2xl text-center text-foreground mb-10">
-            Everything you need to plan your career
+            Everything you need to{" "}
+            <span style={{ color: "oklch(60% 0.22 285)" }}>
+              plan your career
+            </span>
           </h2>
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {[
@@ -204,7 +220,7 @@ export default function CareerKickStartPage() {
             ].map(({ icon: Icon, title, desc }) => (
               <div
                 key={title}
-                className="bg-white rounded-xl p-5 border border-border shadow-xs text-center"
+                className="bg-card rounded-xl p-5 border border-border shadow-card text-center"
               >
                 <div className="w-10 h-10 bg-primary/10 rounded-xl flex items-center justify-center mx-auto mb-3">
                   <Icon className="w-5 h-5 text-primary" />

@@ -86,6 +86,8 @@ export interface _SERVICE {
   '_caffeineStorageUpdateGatewayPrincipals' : ActorMethod<[], undefined>,
   '_initializeAccessControlWithSecret' : ActorMethod<[string], undefined>,
   'assignCallerUserRole' : ActorMethod<[Principal, UserRole], undefined>,
+  'authenticateUser' : ActorMethod<[string, string], boolean>,
+  'changePassword' : ActorMethod<[string, string, string], boolean>,
   'getAvailableRoadmaps' : ActorMethod<[bigint], Array<Roadmap>>,
   'getAvailableSectors' : ActorMethod<[], Array<Sector>>,
   'getCallerUserProfile' : ActorMethod<[], [] | [UserProfile]>,
@@ -94,12 +96,14 @@ export interface _SERVICE {
   'getRecommendedJobRoles' : ActorMethod<[bigint], Array<JobRole>>,
   'getUserProfile' : ActorMethod<[Principal], [] | [UserProfile]>,
   'isCallerAdmin' : ActorMethod<[], boolean>,
+  'register' : ActorMethod<[string, string], boolean>,
   'saveCallerUserProfile' : ActorMethod<[UserProfile], undefined>,
   'submitQuizAnswers' : ActorMethod<[Sector, Array<bigint>], UserQuizResult>,
   'updateUserProfile' : ActorMethod<
     [string, string, [] | [string]],
     UserProfile
   >,
+  'usernameExists' : ActorMethod<[string], boolean>,
 }
 export declare const idlService: IDL.ServiceClass;
 export declare const idlInitArgs: IDL.Type[];

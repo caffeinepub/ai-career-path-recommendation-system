@@ -99,7 +99,10 @@ export default function ProfilePage() {
           <p className="text-muted-foreground text-sm mb-4">
             Please complete your profile setup first.
           </p>
-          <Button asChild className="gradient-purple text-white shadow-purple">
+          <Button
+            asChild
+            className="bg-primary text-primary-foreground shadow-purple hover:opacity-90"
+          >
             <a href="/career-kickstart">Go to Home</a>
           </Button>
         </div>
@@ -113,7 +116,7 @@ export default function ProfilePage() {
         {/* Page header */}
         <div className="animate-fade-in">
           <h1 className="font-display font-bold text-3xl text-foreground mb-1">
-            My Profile
+            My <span style={{ color: "oklch(60% 0.22 285)" }}>Profile</span>
           </h1>
           <p className="text-muted-foreground">
             Manage your personal information and view your progress
@@ -227,7 +230,7 @@ export default function ProfilePage() {
                     <Button
                       onClick={handleSave}
                       disabled={isSaving}
-                      className="gradient-purple text-white shadow-purple hover:shadow-purple-lg transition-all"
+                      className="bg-primary text-primary-foreground shadow-purple hover:shadow-purple-lg hover:opacity-90 transition-all"
                     >
                       {isSaving ? (
                         <>
@@ -286,7 +289,7 @@ export default function ProfilePage() {
                 <Button
                   asChild
                   size="sm"
-                  className="gradient-purple text-white shadow-purple hover:shadow-purple-lg transition-all"
+                  className="bg-primary text-primary-foreground shadow-purple hover:shadow-purple-lg hover:opacity-90 transition-all"
                 >
                   <a href="/skill-assessment">Start Assessment</a>
                 </Button>
@@ -400,7 +403,7 @@ export default function ProfilePage() {
               <Button
                 asChild
                 size="sm"
-                className="gradient-purple text-white shadow-purple hover:shadow-purple-lg transition-all"
+                className="bg-primary text-primary-foreground shadow-purple hover:shadow-purple-lg hover:opacity-90 transition-all"
               >
                 <a href="/quiz/sector-selection">Retake Quiz</a>
               </Button>

@@ -441,6 +441,62 @@ export class Backend implements backendInterface {
             return from_candid_UserProfile_n11(this._uploadFile, this._downloadFile, result);
         }
     }
+    async authenticateUser(arg0: string, arg1: string): Promise<boolean> {
+        if (this.processError) {
+            try {
+                const result = await this.actor.authenticateUser(arg0, arg1);
+                return result;
+            } catch (e) {
+                this.processError(e);
+                throw new Error("unreachable");
+            }
+        } else {
+            const result = await this.actor.authenticateUser(arg0, arg1);
+            return result;
+        }
+    }
+    async changePassword(arg0: string, arg1: string, arg2: string): Promise<boolean> {
+        if (this.processError) {
+            try {
+                const result = await this.actor.changePassword(arg0, arg1, arg2);
+                return result;
+            } catch (e) {
+                this.processError(e);
+                throw new Error("unreachable");
+            }
+        } else {
+            const result = await this.actor.changePassword(arg0, arg1, arg2);
+            return result;
+        }
+    }
+    async register(arg0: string, arg1: string): Promise<boolean> {
+        if (this.processError) {
+            try {
+                const result = await this.actor.register(arg0, arg1);
+                return result;
+            } catch (e) {
+                this.processError(e);
+                throw new Error("unreachable");
+            }
+        } else {
+            const result = await this.actor.register(arg0, arg1);
+            return result;
+        }
+    }
+    async usernameExists(arg0: string): Promise<boolean> {
+        if (this.processError) {
+            try {
+                const result = await this.actor.usernameExists(arg0);
+                return result;
+            } catch (e) {
+                this.processError(e);
+                throw new Error("unreachable");
+            }
+        } else {
+            const result = await this.actor.usernameExists(arg0);
+            return result;
+        }
+    }
 }
 function from_candid_AssessmentStatus_n16(_uploadFile: (file: ExternalBlob) => Promise<Uint8Array>, _downloadFile: (file: Uint8Array) => Promise<ExternalBlob>, value: _AssessmentStatus): AssessmentStatus {
     return from_candid_variant_n17(_uploadFile, _downloadFile, value);

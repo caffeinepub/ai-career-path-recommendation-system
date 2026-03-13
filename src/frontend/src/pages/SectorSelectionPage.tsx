@@ -106,7 +106,8 @@ export default function SectorSelectionPage() {
             Step 1 of 2 — Choose Your Sector
           </div>
           <h1 className="font-display font-bold text-3xl lg:text-4xl text-foreground mb-3">
-            Which sector interests you?
+            Which sector{" "}
+            <span style={{ color: "oklch(60% 0.22 285)" }}>interests you?</span>
           </h1>
           <p className="text-muted-foreground max-w-xl mx-auto">
             Select the broad field that excites you most. This helps us tailor
@@ -183,7 +184,7 @@ export default function SectorSelectionPage() {
           <Button
             onClick={handleContinue}
             disabled={selectedSector === null}
-            className="gradient-purple text-white font-semibold px-8 h-11 shadow-purple hover:shadow-purple-lg transition-all rounded-xl disabled:opacity-50"
+            className="bg-primary text-primary-foreground font-semibold px-8 h-11 shadow-purple hover:shadow-purple-lg hover:opacity-90 transition-all rounded-xl disabled:opacity-50"
           >
             Continue to Quiz
             <ArrowRight className="w-4 h-4 ml-2" />

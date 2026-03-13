@@ -1,4 +1,16 @@
-@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap");
+@font-face {
+  font-family: "Plus Jakarta Sans";
+  src: url("/assets/fonts/PlusJakartaSans-Variable.woff2") format("woff2");
+  font-weight: 100 900;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Cabinet Grotesk";
+  src: url("/assets/fonts/CabinetGrotesk-Variable.woff2") format("woff2");
+  font-weight: 100 900;
+  font-display: swap;
+}
 
 @tailwind base;
 @tailwind components;
@@ -8,94 +20,94 @@
   :root {
     --radius: 0.75rem;
 
-    /* White & Purple Theme */
-    --background: 0.99 0 0;
-    --foreground: 0.18 0.02 285;
+    /* Lavender/Indigo Theme — soft lavender background with deep indigo text */
+    --background: 97% 0.02 280;
+    --foreground: 20% 0.12 278;
 
-    --card: 1 0 0;
-    --card-foreground: 0.18 0.02 285;
+    --card: 99% 0.01 280;
+    --card-foreground: 20% 0.12 278;
 
-    --popover: 1 0 0;
-    --popover-foreground: 0.18 0.02 285;
+    --popover: 99% 0.01 280;
+    --popover-foreground: 20% 0.12 278;
 
-    /* Primary: Rich Purple */
-    --primary: 0.52 0.22 285;
-    --primary-foreground: 0.99 0 0;
+    /* Primary: Deep indigo for buttons and key actions */
+    --primary: 38% 0.22 278;
+    --primary-foreground: 99% 0.005 280;
 
-    /* Secondary: Light Purple tint */
-    --secondary: 0.95 0.04 285;
-    --secondary-foreground: 0.42 0.18 285;
+    /* Secondary: Light lavender for surfaces */
+    --secondary: 92% 0.04 278;
+    --secondary-foreground: 30% 0.15 278;
 
-    --muted: 0.96 0.01 285;
-    --muted-foreground: 0.55 0.04 285;
+    --muted: 94% 0.025 278;
+    --muted-foreground: 55% 0.05 278;
 
-    /* Accent: Soft purple */
-    --accent: 0.93 0.06 285;
-    --accent-foreground: 0.42 0.18 285;
+    /* Accent: Medium purple for highlights and accent text */
+    --accent: 60% 0.22 285;
+    --accent-foreground: 99% 0.005 280;
 
     --destructive: 0.577 0.245 27.325;
     --destructive-foreground: 0.985 0 0;
 
-    --border: 0.9 0.03 285;
-    --input: 0.92 0.03 285;
-    --ring: 0.52 0.22 285;
+    --border: 88% 0.06 278;
+    --input: 90% 0.04 278;
+    --ring: 50% 0.2 278;
 
-    --chart-1: 0.52 0.22 285;
-    --chart-2: 0.65 0.18 285;
-    --chart-3: 0.75 0.12 285;
-    --chart-4: 0.42 0.25 285;
-    --chart-5: 0.35 0.28 285;
+    --chart-1: 38% 0.22 278;
+    --chart-2: 55% 0.18 285;
+    --chart-3: 70% 0.14 285;
+    --chart-4: 30% 0.2 278;
+    --chart-5: 22% 0.15 278;
 
-    --sidebar: 0.97 0.03 285;
-    --sidebar-foreground: 0.18 0.02 285;
-    --sidebar-primary: 0.52 0.22 285;
-    --sidebar-primary-foreground: 0.99 0 0;
-    --sidebar-accent: 0.93 0.06 285;
-    --sidebar-accent-foreground: 0.42 0.18 285;
-    --sidebar-border: 0.9 0.03 285;
-    --sidebar-ring: 0.52 0.22 285;
+    --sidebar: 95% 0.03 278;
+    --sidebar-foreground: 20% 0.12 278;
+    --sidebar-primary: 38% 0.22 278;
+    --sidebar-primary-foreground: 99% 0.005 280;
+    --sidebar-accent: 92% 0.04 278;
+    --sidebar-accent-foreground: 30% 0.15 278;
+    --sidebar-border: 88% 0.06 278;
+    --sidebar-ring: 50% 0.2 278;
 
-    /* Custom purple shades */
-    --purple-50: 0.97 0.03 285;
-    --purple-100: 0.93 0.06 285;
-    --purple-200: 0.87 0.1 285;
-    --purple-300: 0.78 0.15 285;
-    --purple-400: 0.65 0.2 285;
-    --purple-500: 0.52 0.22 285;
-    --purple-600: 0.44 0.22 285;
-    --purple-700: 0.37 0.2 285;
-    --purple-800: 0.3 0.16 285;
-    --purple-900: 0.22 0.12 285;
+    /* Custom purple/indigo shades */
+    --purple-50: 97% 0.02 280;
+    --purple-100: 92% 0.04 278;
+    --purple-200: 85% 0.08 278;
+    --purple-300: 75% 0.13 280;
+    --purple-400: 62% 0.18 283;
+    --purple-500: 50% 0.22 282;
+    --purple-600: 42% 0.22 280;
+    --purple-700: 35% 0.2 278;
+    --purple-800: 28% 0.17 278;
+    --purple-900: 20% 0.12 278;
   }
 
   .dark {
-    --background: 0.12 0.03 285;
-    --foreground: 0.97 0.01 285;
-    --card: 0.16 0.04 285;
-    --card-foreground: 0.97 0.01 285;
-    --popover: 0.18 0.04 285;
-    --popover-foreground: 0.97 0.01 285;
-    --primary: 0.65 0.2 285;
-    --primary-foreground: 0.12 0.03 285;
-    --secondary: 0.22 0.06 285;
-    --secondary-foreground: 0.85 0.06 285;
-    --muted: 0.22 0.04 285;
-    --muted-foreground: 0.65 0.06 285;
-    --accent: 0.25 0.08 285;
-    --accent-foreground: 0.85 0.06 285;
+    --background: 12% 0.04 278;
+    --foreground: 95% 0.02 280;
+    --card: 16% 0.05 278;
+    --card-foreground: 95% 0.02 280;
+    --popover: 18% 0.05 278;
+    --popover-foreground: 95% 0.02 280;
+    --primary: 62% 0.22 280;
+    --primary-foreground: 12% 0.04 278;
+    --secondary: 22% 0.07 278;
+    --secondary-foreground: 85% 0.05 280;
+    --muted: 22% 0.05 278;
+    --muted-foreground: 65% 0.06 280;
+    --accent: 65% 0.2 285;
+    --accent-foreground: 12% 0.04 278;
     --destructive: 0.704 0.191 22.216;
     --destructive-foreground: 0.985 0 0;
-    --border: 0.25 0.05 285;
-    --input: 0.25 0.05 285;
-    --ring: 0.65 0.2 285;
-    --sidebar: 0.16 0.04 285;
-    --sidebar-foreground: 0.97 0.01 285;
-    --sidebar-primary: 0.65 0.2 285;
-    --sidebar-primary-foreground: 0.12 0.03 285;
-    --sidebar-accent: 0.22 0.06 285;
-    --sidebar-accent-foreground: 0.85 0.06 285;
-    --sidebar-border: 0.25 0.05 285;
-    --sidebar-ring: 0.65 0.2 285;
+    --border: 25% 0.06 278;
+    --input: 25% 0.06 278;
+    --ring: 62% 0.22 280;
+    --sidebar: 16% 0.05 278;
+    --sidebar-foreground: 95% 0.02 280;
+    --sidebar-primary: 62% 0.22 280;
+    --sidebar-primary-foreground: 12% 0.04 278;
+    --sidebar-accent: 22% 0.07 278;
+    --sidebar-accent-foreground: 85% 0.05 280;
+    --sidebar-border: 25% 0.06 278;
+    --sidebar-ring: 62% 0.22 280;
   }
 
   * {
@@ -104,6 +116,7 @@
 
   body {
     @apply bg-background text-foreground font-sans antialiased;
+    background: oklch(97% 0.02 280);
   }
 
   h1,
@@ -113,29 +126,33 @@
   h5,
   h6 {
     @apply font-display;
+    color: oklch(var(--foreground));
   }
 }
 
 @layer utilities {
   .gradient-purple {
-    background: linear-gradient(
-      135deg,
-      oklch(0.52 0.22 285),
-      oklch(0.42 0.25 285)
-    );
+    background: linear-gradient(135deg, oklch(38% 0.22 278), oklch(28% 0.2 285));
   }
   .gradient-purple-light {
     background: linear-gradient(
       135deg,
-      oklch(0.97 0.03 285),
-      oklch(0.93 0.06 285)
+      oklch(92% 0.04 278),
+      oklch(88% 0.06 278)
+    );
+  }
+  .gradient-lavender {
+    background: linear-gradient(
+      135deg,
+      oklch(97% 0.02 280),
+      oklch(92% 0.04 278)
     );
   }
   .text-gradient-purple {
     background: linear-gradient(
       135deg,
-      oklch(0.52 0.22 285),
-      oklch(0.42 0.25 285)
+      oklch(38% 0.22 278),
+      oklch(60% 0.22 285)
     );
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -145,6 +162,21 @@
     @apply transition-all duration-200 hover:shadow-lg hover:-translate-y-0.5;
   }
   .purple-glow {
-    box-shadow: 0 0 20px oklch(0.52 0.22 285 / 0.2);
+    box-shadow: 0 0 20px oklch(38% 0.22 278 / 0.2);
+  }
+  .shadow-purple {
+    box-shadow: 0 4px 24px oklch(38% 0.22 278 / 0.2);
+  }
+  .shadow-purple-lg {
+    box-shadow: 0 8px 40px oklch(38% 0.22 278 / 0.25);
+  }
+  .text-accent-purple {
+    color: oklch(var(--accent));
+  }
+  .heading-primary {
+    color: oklch(var(--foreground));
+  }
+  .heading-accent {
+    color: oklch(var(--accent));
   }
 }

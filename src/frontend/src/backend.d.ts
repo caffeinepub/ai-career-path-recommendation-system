@@ -60,6 +60,8 @@ export enum UserRole {
 }
 export interface backendInterface {
     assignCallerUserRole(user: Principal, role: UserRole): Promise<void>;
+    authenticateUser(username: string, password: string): Promise<boolean>;
+    changePassword(username: string, oldPassword: string, newPassword: string): Promise<boolean>;
     getAvailableRoadmaps(sectorId: bigint): Promise<Array<Roadmap>>;
     getAvailableSectors(): Promise<Array<Sector>>;
     getCallerUserProfile(): Promise<UserProfile | null>;
@@ -68,7 +70,9 @@ export interface backendInterface {
     getRecommendedJobRoles(sectorId: bigint): Promise<Array<JobRole>>;
     getUserProfile(user: Principal): Promise<UserProfile | null>;
     isCallerAdmin(): Promise<boolean>;
+    register(username: string, password: string): Promise<boolean>;
     saveCallerUserProfile(profile: UserProfile): Promise<void>;
     submitQuizAnswers(sector: Sector, answers: Array<bigint>): Promise<UserQuizResult>;
     updateUserProfile(name: string, email: string, profilePicture: string | null): Promise<UserProfile>;
+    usernameExists(username: string): Promise<boolean>;
 }

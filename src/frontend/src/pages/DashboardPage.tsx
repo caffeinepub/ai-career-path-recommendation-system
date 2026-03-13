@@ -27,11 +27,70 @@ const JOB_ENRICHMENT: Record<
   { salary: string; growth: string; icon: string }
 > = {
   default: { salary: "$60k–$120k", growth: "15%", icon: "💼" },
+  // Technology
   "Software Engineer": { salary: "$90k–$160k", growth: "25%", icon: "💻" },
   "Data Scientist": { salary: "$95k–$155k", growth: "35%", icon: "📊" },
   "Product Manager": { salary: "$100k–$170k", growth: "20%", icon: "🎯" },
   "UX Designer": { salary: "$75k–$130k", growth: "18%", icon: "🎨" },
   "DevOps Engineer": { salary: "$95k–$155k", growth: "22%", icon: "⚙️" },
+  // Arts
+  "Graphic Designer": { salary: "$50k–$90k", growth: "16%", icon: "🎨" },
+  "Art Director": { salary: "$70k–$120k", growth: "14%", icon: "🖼️" },
+  Animator: { salary: "$55k–$100k", growth: "18%", icon: "🎬" },
+  Photographer: { salary: "$40k–$80k", growth: "12%", icon: "📷" },
+  "Creative Writer": { salary: "$45k–$85k", growth: "10%", icon: "✍️" },
+  // Business
+  "Management Consultant": { salary: "$80k–$150k", growth: "14%", icon: "📋" },
+  Entrepreneur: { salary: "$60k–$200k+", growth: "20%", icon: "🚀" },
+  "Operations Manager": { salary: "$70k–$120k", growth: "16%", icon: "⚙️" },
+  "Business Development Manager": {
+    salary: "$75k–$130k",
+    growth: "18%",
+    icon: "🤝",
+  },
+  "Strategy Analyst": { salary: "$65k–$110k", growth: "15%", icon: "📊" },
+  // Engineering
+  "Civil Engineer": { salary: "$75k–$130k", growth: "20%", icon: "🏗️" },
+  "Mechanical Engineer": { salary: "$80k–$140k", growth: "22%", icon: "⚙️" },
+  "Electrical Engineer": { salary: "$85k–$145k", growth: "24%", icon: "⚡" },
+  "Chemical Engineer": { salary: "$80k–$140k", growth: "18%", icon: "🧪" },
+  "Structural Engineer": { salary: "$75k–$130k", growth: "19%", icon: "🔧" },
+  // Finance
+  "Financial Analyst": { salary: "$70k–$120k", growth: "20%", icon: "📈" },
+  "Investment Banker": { salary: "$100k–$200k", growth: "15%", icon: "🏦" },
+  Accountant: { salary: "$55k–$95k", growth: "12%", icon: "📒" },
+  "Financial Planner": { salary: "$65k–$110k", growth: "16%", icon: "💰" },
+  "Risk Analyst": { salary: "$70k–$115k", growth: "18%", icon: "🛡️" },
+  // Education
+  Teacher: { salary: "$40k–$75k", growth: "10%", icon: "📚" },
+  "Curriculum Designer": { salary: "$55k–$90k", growth: "12%", icon: "📝" },
+  "Education Administrator": {
+    salary: "$60k–$100k",
+    growth: "14%",
+    icon: "🏫",
+  },
+  "Corporate Trainer": { salary: "$60k–$100k", growth: "16%", icon: "🎓" },
+  "Education Researcher": { salary: "$55k–$90k", growth: "12%", icon: "🔬" },
+  // Marketing
+  "Digital Marketer": { salary: "$55k–$95k", growth: "22%", icon: "📱" },
+  "Brand Manager": { salary: "$70k–$120k", growth: "18%", icon: "🏷️" },
+  "Content Strategist": { salary: "$60k–$100k", growth: "20%", icon: "📣" },
+  "SEO Specialist": { salary: "$55k–$90k", growth: "24%", icon: "🔍" },
+  "Social Media Manager": { salary: "$50k–$85k", growth: "26%", icon: "💬" },
+  // Science
+  "Research Scientist": { salary: "$70k–$120k", growth: "18%", icon: "🔬" },
+  Biologist: { salary: "$60k–$100k", growth: "14%", icon: "🧬" },
+  Chemist: { salary: "$65k–$110k", growth: "15%", icon: "⚗️" },
+  "Environmental Scientist": {
+    salary: "$60k–$100k",
+    growth: "20%",
+    icon: "🌿",
+  },
+  "Scientific Data Analyst": {
+    salary: "$70k–$115k",
+    growth: "22%",
+    icon: "📊",
+  },
 };
 
 // Fallback recommended jobs per sector
@@ -120,6 +179,196 @@ const FALLBACK_JOBS: Record<
       description: "Manage online sales channels and digital storefronts",
     },
   ],
+  "4": [
+    {
+      jobId: "graphic-designer",
+      role: "Graphic Designer",
+      description: "Create visual content for brands and media",
+    },
+    {
+      jobId: "art-director",
+      role: "Art Director",
+      description: "Lead creative direction for campaigns and projects",
+    },
+    {
+      jobId: "animator",
+      role: "Animator",
+      description: "Produce animations for film, TV, and digital media",
+    },
+    {
+      jobId: "photographer",
+      role: "Photographer",
+      description: "Capture and edit professional photography",
+    },
+    {
+      jobId: "creative-writer",
+      role: "Creative Writer",
+      description: "Write content for books, scripts, and digital media",
+    },
+  ],
+  "5": [
+    {
+      jobId: "management-consultant",
+      role: "Management Consultant",
+      description: "Advise organizations on strategy and operations",
+    },
+    {
+      jobId: "entrepreneur",
+      role: "Entrepreneur",
+      description: "Build and grow your own business ventures",
+    },
+    {
+      jobId: "operations-manager",
+      role: "Operations Manager",
+      description: "Oversee daily business operations and processes",
+    },
+    {
+      jobId: "business-development",
+      role: "Business Development Manager",
+      description: "Identify growth opportunities and partnerships",
+    },
+    {
+      jobId: "strategy-analyst",
+      role: "Strategy Analyst",
+      description: "Research and develop business strategies",
+    },
+  ],
+  "6": [
+    {
+      jobId: "civil-engineer",
+      role: "Civil Engineer",
+      description: "Design and oversee infrastructure construction",
+    },
+    {
+      jobId: "mechanical-engineer",
+      role: "Mechanical Engineer",
+      description: "Design and develop mechanical systems",
+    },
+    {
+      jobId: "electrical-engineer",
+      role: "Electrical Engineer",
+      description: "Design electrical systems and circuits",
+    },
+    {
+      jobId: "chemical-engineer",
+      role: "Chemical Engineer",
+      description: "Develop chemical processes and products",
+    },
+    {
+      jobId: "structural-engineer",
+      role: "Structural Engineer",
+      description:
+        "Ensure structural integrity of buildings and infrastructure",
+    },
+  ],
+  "7": [
+    {
+      jobId: "financial-analyst",
+      role: "Financial Analyst",
+      description: "Analyze financial data and investment opportunities",
+    },
+    {
+      jobId: "investment-banker",
+      role: "Investment Banker",
+      description: "Facilitate capital raising and M&A transactions",
+    },
+    {
+      jobId: "accountant",
+      role: "Accountant",
+      description: "Manage financial records and tax compliance",
+    },
+    {
+      jobId: "financial-planner",
+      role: "Financial Planner",
+      description: "Help clients achieve their financial goals",
+    },
+    {
+      jobId: "risk-analyst",
+      role: "Risk Analyst",
+      description: "Assess and mitigate financial risks",
+    },
+  ],
+  "8": [
+    {
+      jobId: "teacher",
+      role: "Teacher",
+      description: "Educate and mentor students in a classroom setting",
+    },
+    {
+      jobId: "curriculum-designer",
+      role: "Curriculum Designer",
+      description: "Develop educational programs and materials",
+    },
+    {
+      jobId: "education-admin",
+      role: "Education Administrator",
+      description: "Manage school or institution operations",
+    },
+    {
+      jobId: "corporate-trainer",
+      role: "Corporate Trainer",
+      description: "Deliver professional training to employees",
+    },
+    {
+      jobId: "education-researcher",
+      role: "Education Researcher",
+      description: "Study and improve teaching methods",
+    },
+  ],
+  "9": [
+    {
+      jobId: "digital-marketer",
+      role: "Digital Marketer",
+      description: "Plan and execute online marketing campaigns",
+    },
+    {
+      jobId: "brand-manager",
+      role: "Brand Manager",
+      description: "Build and maintain brand identity and awareness",
+    },
+    {
+      jobId: "content-strategist",
+      role: "Content Strategist",
+      description: "Plan and manage content for target audiences",
+    },
+    {
+      jobId: "seo-specialist",
+      role: "SEO Specialist",
+      description: "Optimize websites for search engine rankings",
+    },
+    {
+      jobId: "social-media-manager",
+      role: "Social Media Manager",
+      description: "Manage brand presence across social platforms",
+    },
+  ],
+  "10": [
+    {
+      jobId: "research-scientist",
+      role: "Research Scientist",
+      description: "Conduct experiments and publish scientific findings",
+    },
+    {
+      jobId: "biologist",
+      role: "Biologist",
+      description: "Study living organisms and ecosystems",
+    },
+    {
+      jobId: "chemist",
+      role: "Chemist",
+      description: "Research and develop chemical compounds",
+    },
+    {
+      jobId: "environmental-scientist",
+      role: "Environmental Scientist",
+      description: "Study and address environmental challenges",
+    },
+    {
+      jobId: "data-analyst-science",
+      role: "Scientific Data Analyst",
+      description: "Analyze experimental data for research insights",
+    },
+  ],
   default: [
     {
       jobId: "consultant",
@@ -179,7 +428,11 @@ export default function DashboardPage() {
           <div className="flex items-start justify-between gap-4">
             <div>
               <h1 className="font-display font-bold text-2xl lg:text-3xl text-foreground">
-                Welcome back, {userProfile?.name?.split(" ")[0] || "there"}! 👋
+                Welcome back,{" "}
+                <span style={{ color: "oklch(60% 0.22 285)" }}>
+                  {userProfile?.name?.split(" ")[0] || "there"}
+                </span>{" "}
+                👋
               </h1>
               <p className="text-muted-foreground mt-1">
                 Here's your personalized career dashboard
@@ -187,7 +440,7 @@ export default function DashboardPage() {
             </div>
             <Button
               asChild
-              className="hidden sm:flex gradient-purple text-white shadow-purple hover:shadow-purple-lg transition-all"
+              className="hidden sm:flex bg-primary text-primary-foreground shadow-purple hover:shadow-purple-lg hover:opacity-90 transition-all"
             >
               <a href="/quiz/sector-selection">
                 <Brain className="w-4 h-4 mr-2" />
@@ -232,7 +485,10 @@ export default function DashboardPage() {
                     <Icon className={`w-4 h-4 ${color}`} />
                   </div>
                   <div>
-                    <p className="font-display font-bold text-lg text-foreground leading-none">
+                    <p
+                      className="font-display font-bold text-lg leading-none"
+                      style={{ color: "oklch(38% 0.22 278)" }}
+                    >
                       {value}
                     </p>
                     <p className="text-xs text-muted-foreground mt-0.5">
@@ -268,7 +524,7 @@ export default function DashboardPage() {
                       <Button
                         asChild
                         size="sm"
-                        className="gradient-purple text-white shadow-purple hover:shadow-purple-lg transition-all"
+                        className="bg-primary text-primary-foreground shadow-purple hover:shadow-purple-lg hover:opacity-90 transition-all"
                       >
                         <a href="/skill-assessment">
                           <Sparkles className="w-3.5 h-3.5 mr-1.5" />
@@ -304,7 +560,8 @@ export default function DashboardPage() {
             <div className="flex items-center justify-between">
               <div>
                 <h2 className="font-display font-bold text-xl text-foreground">
-                  Recommended for You
+                  Recommended for{" "}
+                  <span style={{ color: "oklch(60% 0.22 285)" }}>You</span>
                 </h2>
                 <p className="text-sm text-muted-foreground">
                   Based on your {sectorName} sector selection
