@@ -183,6 +183,38 @@ actor {
     };
   };
 
+  // Claim admin if no admin has been assigned yet
+  public shared ({ caller }) func claimFirstAdmin() : async Bool {
+    if (caller.isAnonymous()) { return false };
+    if (accessControlState.adminAssigned) { return false };
+    accessControlState.userRoles.add(caller, #admin);
+    accessControlState.adminAssigned := true;
+    // Update user profile role too
+    switch (userProfiles.get(caller)) {
+      case null {};
+      case (?profile) {
+        let updated : UserProfile = {
+          name = profile.name;
+          email = profile.email;
+          role = #admin;
+          profilePicture = profile.profilePicture;
+          completedAssessments = profile.completedAssessments;
+          savedJobs = profile.savedJobs;
+        };
+        userProfiles.add(caller, updated);
+      };
+    };
+    true;
+  };
+
+  // Get all users (admin only)
+  public query ({ caller }) func getAllUsers() : async [UserProfile] {
+    if (not AccessControl.isAdmin(accessControlState, caller)) {
+      Runtime.trap("Unauthorized: Only admins can view all users");
+    };
+    userProfiles.values().toArray();
+  };
+
   // Submits quiz answers and stores the results for later dashboard display.
   public shared ({ caller }) func submitQuizAnswers(sector : Sector, answers : [Nat]) : async UserQuizResult {
     if (not (AccessControl.hasPermission(accessControlState, caller, #user))) {

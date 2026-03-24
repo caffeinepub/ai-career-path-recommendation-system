@@ -168,6 +168,8 @@ export interface backendInterface {
     getRecommendedJobRoles(sectorId: bigint): Promise<Array<JobRole>>;
     getUserProfile(user: Principal): Promise<UserProfile | null>;
     isCallerAdmin(): Promise<boolean>;
+    claimFirstAdmin(): Promise<boolean>;
+    getAllUsers(): Promise<Array<UserProfile>>;
     saveCallerUserProfile(profile: UserProfile): Promise<void>;
     submitQuizAnswers(sector: Sector, answers: Array<bigint>): Promise<UserQuizResult>;
     updateUserProfile(name: string, email: string, profilePicture: string | null): Promise<UserProfile>;
@@ -397,6 +399,34 @@ export class Backend implements backendInterface {
         } else {
             const result = await this.actor.isCallerAdmin();
             return result;
+        }
+    }
+    async claimFirstAdmin(): Promise<boolean> {
+        if (this.processError) {
+            try {
+                const result = await this.actor.claimFirstAdmin();
+                return result;
+            } catch (e) {
+                this.processError(e);
+                throw new Error("unreachable");
+            }
+        } else {
+            const result = await this.actor.claimFirstAdmin();
+            return result;
+        }
+    }
+    async getAllUsers(): Promise<Array<UserProfile>> {
+        if (this.processError) {
+            try {
+                const result = await this.actor.getAllUsers();
+                return result.map((u: any) => from_candid_UserProfile_n11(this._uploadFile, this._downloadFile, u));
+            } catch (e) {
+                this.processError(e);
+                throw new Error("unreachable");
+            }
+        } else {
+            const result = await this.actor.getAllUsers();
+            return result.map((u: any) => from_candid_UserProfile_n11(this._uploadFile, this._downloadFile, u));
         }
     }
     async saveCallerUserProfile(arg0: UserProfile): Promise<void> {

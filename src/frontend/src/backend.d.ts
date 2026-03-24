@@ -59,9 +59,12 @@ export enum UserRole {
     guest = "guest"
 }
 export interface backendInterface {
+    _initializeAccessControlWithSecret(userSecret: string): Promise<void>;
     assignCallerUserRole(user: Principal, role: UserRole): Promise<void>;
     authenticateUser(username: string, password: string): Promise<boolean>;
     changePassword(username: string, oldPassword: string, newPassword: string): Promise<boolean>;
+    claimFirstAdmin(): Promise<boolean>;
+    getAllUsers(): Promise<Array<UserProfile>>;
     getAvailableRoadmaps(sectorId: bigint): Promise<Array<Roadmap>>;
     getAvailableSectors(): Promise<Array<Sector>>;
     getCallerUserProfile(): Promise<UserProfile | null>;

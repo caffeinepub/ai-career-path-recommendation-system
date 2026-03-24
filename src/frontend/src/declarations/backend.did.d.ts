@@ -88,6 +88,8 @@ export interface _SERVICE {
   'assignCallerUserRole' : ActorMethod<[Principal, UserRole], undefined>,
   'authenticateUser' : ActorMethod<[string, string], boolean>,
   'changePassword' : ActorMethod<[string, string, string], boolean>,
+  'claimFirstAdmin' : ActorMethod<[], boolean>,
+  'getAllUsers' : ActorMethod<[], Array<UserProfile>>,
   'getAvailableRoadmaps' : ActorMethod<[bigint], Array<Roadmap>>,
   'getAvailableSectors' : ActorMethod<[], Array<Sector>>,
   'getCallerUserProfile' : ActorMethod<[], [] | [UserProfile]>,

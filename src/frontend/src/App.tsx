@@ -11,6 +11,7 @@ import { useGetCallerUserProfile } from "./hooks/useQueries";
 
 import Layout from "./components/Layout";
 import ProfileSetupModal from "./components/ProfileSetupModal";
+import AdminPage from "./pages/AdminPage";
 import AssessmentTestPage from "./pages/AssessmentTestPage";
 import CareerKickStartPage from "./pages/CareerKickStartPage";
 import DashboardPage from "./pages/DashboardPage";
@@ -148,6 +149,12 @@ const profileRoute = createRoute({
   component: ProfilePage,
 });
 
+const adminRoute = createRoute({
+  getParentRoute: () => authenticatedRoute,
+  path: "/admin",
+  component: AdminPage,
+});
+
 const routeTree = rootRoute.addChildren([
   indexRoute,
   loginRoute,
@@ -161,6 +168,7 @@ const routeTree = rootRoute.addChildren([
     skillAssessmentRoute,
     assessmentTestRoute,
     profileRoute,
+    adminRoute,
   ]),
 ]);
 
