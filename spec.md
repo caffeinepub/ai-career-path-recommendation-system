@@ -1,14 +1,19 @@
-# Specification
+# Kick-Start Career's
 
-## Summary
-**Goal:** Fix the "failed to submit quiz" error so that quiz submission works correctly end-to-end.
+## Current State
+Full-stack career recommendation app with Motoko backend storing users, credentials, quiz results, profiles, and admin state. All data maps are non-stable variables.
 
-**Planned changes:**
-- Audit and fix the `submitQuizAnswers` mutation in `frontend/src/hooks/useQueries.ts` to ensure the data shape (sector, answers array, question IDs) matches what the backend expects.
-- Audit and fix the corresponding backend handler in `backend/main.mo` to correctly receive and store the submitted quiz data.
-- Resolve any type mismatches, missing fields, or incorrect Candid encoding between the frontend (`QuizQuestionsPage.tsx`) and backend.
-- Handle existing quiz submission data for the same user gracefully (overwrite or append).
-- Navigate the user to the Dashboard on successful submission.
-- Show a meaningful error message if submission fails for a legitimate reason (e.g., unauthenticated) instead of a generic failure.
+## Requested Changes (Diff)
 
-**User-visible outcome:** Users can complete the quiz and submit it without encountering the "failed to submit quiz" error, and are redirected to the Dashboard upon success.
+### Add
+- Nothing new
+
+### Modify
+- Redeploy backend fresh to wipe all stored data (users, credentials, profiles, quiz results, admin state)
+
+### Remove
+- All existing user data (reset)
+
+## Implementation Plan
+- Redeploy the existing backend as-is; non-stable maps will be cleared on canister upgrade
+- No code changes needed -- redeployment achieves the reset
